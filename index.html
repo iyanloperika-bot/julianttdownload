@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TikSave Pro - TikTok Downloader Tanpa Watermark HD & Audio MP3</title>
+  <meta name="description" content="Download video TikTok tanpa watermark secara gratis dengan kualitas HD, audio MP3, foto slide, dan salin caption otomatis.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              cyan: '#00F2FE',
+              pink: '#FE2C55',
+              dark: '#0B0F19',
+              card: '#131B2E',
+              border: '#1E293B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #07090e;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+    .glassmorphism {
+      background: rgba(19, 27, 46, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-input {
+      background: rgba(11, 15, 25, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .neon-gradient-btn {
+      background: linear-gradient(135deg, #FE2C55 0%, #FF0055 50%, #00F2FE 100%);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .neon-gradient-btn:hover {
+      box-shadow: 0 0 25px rgba(254, 44, 85, 0.5);
+      transform: translateY(-2px);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-brand-pink selection:text-white">
+
+  <!-- Background Orbs Glowing -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 pointer-events-none -z-10 overflow-hidden opacity-30">
+    <div class="absolute -top-32 left-1/4 w-96 h-96 bg-brand-pink rounded-full blur-[140px]"></div>
+    <div class="absolute -top-32 right-1/4 w-96 h-96 bg-brand-cyan rounded-full blur-[140px]"></div>
+  </div>
+
+  <!-- Header Navigasi -->
+  <header class="w-full glassmorphism sticky top-0 z-50 border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-pink to-brand-cyan flex items-center justify-center shadow-lg shadow-brand-pink/30">
+          <i data-lucide="video" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
+            TikSave<span class="text-brand-cyan">.Pro</span>
+          </span>
+          <span class="text-[10px] px-1.5 py-0.5 rounded bg-brand-pink/20 text-brand-pink font-semibold uppercase tracking-wider">Fast & Free</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#downloader" class="hover:text-white transition">Downloader</a>
+        <a href="#fitur" class="hover:text-white transition">Fitur</a>
+        <a href="#panduan" class="hover:text-white transition">Panduan</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#downloader" class="text-xs sm:text-sm font-semibold px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white transition flex items-center gap-2">
+          <i data-lucide="sparkles" class="w-4 h-4 text-brand-cyan"></i>
+          <span>Unduh Sekarang</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Konten Utama -->
+  <main class="flex-grow max-w-5xl w-full mx-auto px-4 sm:px-6 pt-10 pb-16" id="downloader">
+    
+    <!-- Hero Header -->
+    <div class="text-center space-y-4 mb-8">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glassmorphism text-xs font-semibold text-slate-300 border border-white/10">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span>Server Aktif: Resolusi Full HD & Audio MP3 Siap Digunakan</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white">
+        Download TikTok <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-pink via-purple-400 to-brand-cyan">Tanpa Watermark</span>
+      </h1>
+      <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+        Simpan video TikTok kualitas tinggi HD, slide foto, story, musik MP3, serta salin semua caption & hashtag secara instan dalam 1 klik.
+      </p>
+    </div>
+
+    <!-- Kotak Input Form -->
+    <div class="glassmorphism p-3 sm:p-5 rounded-3xl shadow-2xl border border-white/10 relative overflow-hidden">
+      <form id="downloadForm" class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-grow">
+          <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
+            <i data-lucide="link-2" class="w-5 h-5"></i>
+          </div>
+          <input 
+            type="url" 
+            id="tiktokUrl" 
+            name="url" 
+            placeholder="Tempel tautan TikTok di sini (cth: https://vt.tiktok.com/...)"
+            required
+            class="w-full pl-12 pr-28 py-4 glass-input rounded-2xl text-white placeholder-slate-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand-cyan/60 transition"
+          >
+          <!-- Tombol Tempel Instan di HP -->
+          <button 
+            type="button" 
+            id="pasteBtn"
+            title="Tempel dari Clipboard"
+            class="absolute inset-y-2 right-2 px-3 bg-white/10 hover:bg-white/20 text-slate-200 text-xs font-semibold rounded-xl flex items-center gap-1.5 transition active:scale-95"
+          >
+            <i data-lucide="clipboard" class="w-3.5 h-3.5 text-brand-cyan"></i>
+            <span>Tempel</span>
+          </button>
+        </div>
+
+        <button 
+          type="submit" 
+          id="submitBtn"
+          class="neon-gradient-btn px-8 py-4 rounded-2xl font-bold text-white text-base flex items-center justify-center gap-2 shrink-0 active:scale-95 cursor-pointer shadow-lg"
+        >
+          <i data-lucide="download" class="w-5 h-5"></i>
+          <span>Download</span>
+        </button>
+      </form>
+
+      <!-- Label Fitur Cepat -->
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mt-4 pt-4 border-t border-white/5 text-xs text-slate-400">
+        <div class="flex items-center gap-1.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i> No Watermark HD</div>
+        <div class="flex items-center gap-1.5"><i data-lucide="music" class="w-4 h-4 text-brand-cyan"></i> Ekstrak MP3</div>
+        <div class="flex items-center gap-1.5"><i data-lucide="images" class="w-4 h-4 text-purple-400"></i> Foto Slide / Story</div>
+        <div class="flex items-center gap-1.5"><i data-lucide="hash" class="w-4 h-4 text-brand-pink"></i> Salin Caption & Tag</div>
+      </div>
+    </div>
+
+    <!-- Alert Notifikasi -->
+    <div id="statusAlert" class="hidden mt-4 p-4 rounded-2xl text-sm font-medium transition-all"></div>
+
+    <!-- Skeleton Loading -->
+    <div id="loadingSkeleton" class="hidden mt-8 glassmorphism p-6 rounded-3xl animate-pulse space-y-4">
+      <div class="flex gap-4 items-center">
+        <div class="w-14 h-14 rounded-full bg-slate-700"></div>
+        <div class="flex-1 space-y-2">
+          <div class="h-4 bg-slate-700 rounded w-1/3"></div>
+          <div class="h-3 bg-slate-800 rounded w-1/4"></div>
+        </div>
+      </div>
+      <div class="h-48 bg-slate-800 rounded-2xl"></div>
+      <div class="h-10 bg-slate-700 rounded-xl"></div>
+    </div>
+
+    <!-- Kartu Hasil Download -->
+    <section id="resultCard" class="hidden mt-8 glassmorphism p-5 sm:p-7 rounded-3xl border border-white/10 shadow-2xl transition-all">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+        
+        <!-- Thumbnail Media -->
+        <div class="md:col-span-5 flex flex-col items-center">
+          <div class="relative w-full aspect-[9/16] max-w-[280px] rounded-2xl overflow-hidden shadow-xl border border-white/10 group">
+            <img id="mediaCover" src="" alt="Thumbnail Video" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+              <span id="mediaDuration" class="text-xs bg-black/70 backdrop-blur px-2 py-1 rounded-md text-white font-mono flex items-center gap-1">
+                <i data-lucide="clock" class="w-3 h-3 text-brand-cyan"></i> 00:00
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info & Tombol Aksi -->
+        <div class="md:col-span-7 flex flex-col justify-between space-y-5">
+          <!-- Profil Author -->
+          <div class="flex items-center gap-3">
+            <img id="authorAvatar" src="" alt="Avatar" class="w-12 h-12 rounded-full border-2 border-brand-pink object-cover">
+            <div>
+              <h3 id="authorName" class="font-bold text-white text-base leading-tight">Nama Kreator</h3>
+              <p id="authorHandle" class="text-xs text-brand-cyan">@username</p>
+            </div>
+          </div>
+
+          <!-- Statistik Video -->
+          <div class="grid grid-cols-3 gap-2 py-2.5 px-3 rounded-xl bg-white/5 border border-white/5 text-center text-xs">
+            <div>
+              <span class="text-slate-400 block text-[10px]">Suka</span>
+              <span id="statLikes" class="font-bold text-white">0</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px]">Komentar</span>
+              <span id="statComments" class="font-bold text-white">0</span>
+            </div>
+            <div>
+              <span class="text-slate-400 block text-[10px]">Dibagikan</span>
+              <span id="statShares" class="font-bold text-white">0</span>
+            </div>
+          </div>
+
+          <!-- Bagian Caption & Salin Caption / Hashtag -->
+          <div class="space-y-2">
+            <label class="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-brand-cyan"></i> Caption & Hashtag Video:
+            </label>
+            <div class="p-3.5 rounded-xl bg-black/40 border border-white/10 text-xs text-slate-300 max-h-28 overflow-y-auto custom-scroll leading-relaxed" id="captionText">
+              Tidak ada caption.
+            </div>
+            <!-- Tombol Pilihan Salin (Fitur Tambahan) -->
+            <div class="flex flex-wrap gap-2 pt-1">
+              <button 
+                type="button" 
+                id="copyAllCaptionBtn" 
+                class="flex-1 py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-white font-medium text-xs flex items-center justify-center gap-1.5 transition"
+              >
+                <i data-lucide="copy" class="w-3.5 h-3.5 text-brand-cyan"></i>
+                <span>Salin Semua Caption</span>
+              </button>
+              <button 
+                type="button" 
+                id="copyHashtagsBtn" 
+                class="flex-1 py-2.5 px-3 rounded-xl bg-white/10 hover:bg-white/20 active:scale-95 text-white font-medium text-xs flex items-center justify-center gap-1.5 transition"
+              >
+                <i data-lucide="hash" class="w-3.5 h-3.5 text-brand-pink"></i>
+                <span>Salin Hanya Hashtag</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Tombol Download Video & Audio -->
+          <div class="space-y-2.5 pt-2" id="downloadButtonsContainer">
+            <!-- Pilihan 1: Tanpa Watermark HD -->
+            <a 
+              id="btnDownloadHD" 
+              href="#" 
+              target="_blank" 
+              class="w-full py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-teal-500 hover:opacity-95 text-white flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95 transition"
+            >
+              <i data-lucide="video" class="w-4 h-4"></i>
+              <span>Download Video (Tanpa Watermark HD)</span>
+            </a>
+
+            <!-- Pilihan 2: Server Cadangan -->
+            <a 
+              id="btnDownloadServer2" 
+              href="#" 
+              target="_blank" 
+              class="w-full py-3 px-4 rounded-xl font-semibold text-xs sm:text-sm bg-slate-800 hover:bg-slate-700 text-slate-200 flex items-center justify-center gap-2 border border-white/10 active:scale-95 transition"
+            >
+              <i data-lucide="server" class="w-4 h-4 text-brand-cyan"></i>
+              <span>Download Tanpa Watermark (Server 2)</span>
+            </a>
+
+            <!-- Pilihan 3: Unduh Audio MP3 -->
+            <a 
+              id="btnDownloadMP3" 
+              href="#" 
+              target="_blank" 
+              class="w-full py-3 px-4 rounded-xl font-semibold text-xs sm:text-sm bg-gradient-to-r from-brand-pink/20 to-purple-600/20 hover:bg-brand-pink/30 text-pink-300 border border-brand-pink/40 flex items-center justify-center gap-2 active:scale-95 transition"
+            >
+              <i data-lucide="music-2" class="w-4 h-4 text-brand-pink"></i>
+              <span>Download Musik / Audio (MP3)</span>
+            </a>
+          </div>
+
+          <!-- Kontainer Unduhan Foto Slide (Jika Postingan Foto) -->
+          <div id="photosContainer" class="hidden space-y-3 pt-3">
+            <h4 class="text-xs font-bold text-slate-300 flex items-center gap-1.5">
+              <i data-lucide="images" class="w-4 h-4 text-purple-400"></i> Unduh Foto Slide TikTok:
+            </h4>
+            <div id="photosGrid" class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 max-h-60 overflow-y-auto custom-scroll p-1">
+              <!-- Item slide disisipkan oleh JavaScript -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Fitur Unggulan -->
+    <section id="fitur" class="mt-20">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Fitur Unggulan Layanan</h2>
+        <p class="text-slate-400 text-sm mt-2">Didesain dengan arsitektur cepat tanpa iklan pop-up yang mengganggu</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="glassmorphism p-5 rounded-2xl border border-white/5 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-pink/20 text-brand-pink flex items-center justify-center">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-white font-bold text-base">Tanpa Watermark</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Ekstraksi stream video murni langsung dari penyimpanan cloud TikTok tanpa logo mengambang.</p>
+        </div>
+
+        <div class="glassmorphism p-5 rounded-2xl border border-white/5 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-brand-cyan/20 text-brand-cyan flex items-center justify-center">
+            <i data-lucide="music" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-white font-bold text-base">Konversi MP3 Cepat</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Ambil lagu background, sound viral, atau podcast TikTok langsung dalam format MP3 resolusi jernih.</p>
+        </div>
+
+        <div class="glassmorphism p-5 rounded-2xl border border-white/5 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center">
+            <i data-lucide="images" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-white font-bold text-base">Support Foto Slide</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Mendukung album foto geser (photo slideshow) TikTok satu per satu dengan kualitas asli.</p>
+        </div>
+
+        <div class="glassmorphism p-5 rounded-2xl border border-white/5 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+            <i data-lucide="copy" class="w-5 h-5"></i>
+          </div>
+          <h3 class="text-white font-bold text-base">Salin Caption & Tag</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">Salin teks caption lengkap atau saring hanya hashtag untuk kemudahan konten kreator.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Panduan Cara Kerja -->
+    <section id="panduan" class="mt-20">
+      <div class="text-center mb-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Cara Download Video TikTok</h2>
+        <p class="text-slate-400 text-sm mt-2">Hanya 3 langkah ringkas langsung di smartphone Anda</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glassmorphism p-6 rounded-2xl border border-white/5 relative">
+          <div class="w-8 h-8 rounded-full bg-brand-pink text-white font-extrabold text-sm flex items-center justify-center mb-4">1</div>
+          <h3 class="text-white font-bold text-base mb-2">Salin Tautan</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Buka TikTok, klik tombol <strong>Bagikan (Share)</strong> pada video atau foto slide, lalu klik <strong>Salin Tautan (Copy Link)</strong>.
+          </p>
+        </div>
+
+        <div class="glassmorphism p-6 rounded-2xl border border-white/5 relative">
+          <div class="w-8 h-8 rounded-full bg-brand-cyan text-slate-900 font-extrabold text-sm flex items-center justify-center mb-4">2</div>
+          <h3 class="text-white font-bold text-base mb-2">Tempel & Klik Download</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Klik tombol <strong>Tempel</strong> di kolom atas situs ini, lalu tekan tombol <strong>Download</strong> untuk membaca data video.
+          </p>
+        </div>
+
+        <div class="glassmorphism p-6 rounded-2xl border border-white/5 relative">
+          <div class="w-8 h-8 rounded-full bg-emerald-400 text-slate-900 font-extrabold text-sm flex items-center justify-center mb-4">3</div>
+          <h3 class="text-white font-bold text-base mb-2">Simpan ke Galeri</h3>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Pilih opsi <strong>Tanpa Watermark HD</strong> atau <strong>MP3</strong>. File akan langsung tersimpan di galeri penyimpanan perangkat Anda.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mt-20">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white">Pertanyaan Sering Diajukan (FAQ)</h2>
+      </div>
+
+      <div class="space-y-3 max-w-3xl mx-auto">
+        <details class="glassmorphism p-4 rounded-xl cursor-pointer group">
+          <summary class="font-semibold text-sm text-slate-200 flex justify-between items-center">
+            Apakah website ini gratis dan tanpa batasan?
+            <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="mt-3 text-xs text-slate-400 leading-relaxed border-t border-white/5 pt-3">
+            Ya! Anda dapat mendownload video sebanyak apa pun secara gratis tanpa perlu membuat akun atau login.
+          </p>
+        </details>
+
+        <details class="glassmorphism p-4 rounded-xl cursor-pointer group">
+          <summary class="font-semibold text-sm text-slate-200 flex justify-between items-center">
+            Di mana video tersimpan setelah didownload di HP?
+            <i data-lucide="chevron-down" class="w-4 h-4 group-open:rotate-180 transition"></i>
+          </summary>
+          <p class="mt-3 text-xs text-slate-400 leading-relaxed border-t border-white/5 pt-3">
+            Pada HP Android, file langsung berada di folder <strong>Downloads</strong> atau aplikasi <strong>Galeri / Foto</strong>. Pada iPhone/iPad, video akan tersimpan di browser Safari &gt; <strong>Files &gt; Downloads</strong>.
+          </p>
+        </details>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="glassmorphism border-t border-white/10 py-8 mt-16 text-center text-xs text-slate-500">
+    <div class="max-w-5xl mx-auto px-4 space-y-3">
+      <p class="text-slate-400 font-medium">TikSave.Pro &copy; 2026 - TikTok Downloader HD Tanpa Watermark</p>
+      <p class="text-[11px] text-slate-600 max-w-xl mx-auto">
+        Disclaimer: TikSave tidak berafiliasi dengan TikTok atau ByteDance Ltd. Pengguna bertanggung jawab penuh atas hak cipta konten yang diunduh.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script Logika -->
+  <script>
+    lucide.createIcons();
+
+    const downloadForm = document.getElementById('downloadForm');
+    const tiktokUrlInput = document.getElementById('tiktokUrl');
+    const pasteBtn = document.getElementById('pasteBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusAlert = document.getElementById('statusAlert');
+    const loadingSkeleton = document.getElementById('loadingSkeleton');
+    const resultCard = document.getElementById('resultCard');
+
+    const mediaCover = document.getElementById('mediaCover');
+    const mediaDuration = document.getElementById('mediaDuration');
+    const authorAvatar = document.getElementById('authorAvatar');
+    const authorName = document.getElementById('authorName');
+    const authorHandle = document.getElementById('authorHandle');
+    const statLikes = document.getElementById('statLikes');
+    const statComments = document.getElementById('statComments');
+    const statShares = document.getElementById('statShares');
+    const captionText = document.getElementById('captionText');
+    const copyAllCaptionBtn = document.getElementById('copyAllCaptionBtn');
+    const copyHashtagsBtn = document.getElementById('copyHashtagsBtn');
+    const btnDownloadHD = document.getElementById('btnDownloadHD');
+    const btnDownloadServer2 = document.getElementById('btnDownloadServer2');
+    const btnDownloadMP3 = document.getElementById('btnDownloadMP3');
+    const photosContainer = document.getElementById('photosContainer');
+    const photosGrid = document.getElementById('photosGrid');
+
+    let currentCaption = '';
+    let currentHashtags = '';
+
+    // Tombol Tempel dari Papan Klip HP
+    pasteBtn.addEventListener('click', async () => {
+      try {
+        if (navigator.clipboard && navigator.clipboard.readText) {
+          const text = await navigator.clipboard.readText();
+          if (text) {
+            tiktokUrlInput.value = text.trim();
+            showAlert('Tautan berhasil ditempel!', 'success');
+          } else {
+            showAlert('Papan klip kosong. Salin tautan TikTok terlebih dahulu.', 'warning');
+          }
+        } else {
+          showAlert('Silakan tahan pada kotak teks dan pilih Tempel.', 'warning');
+        }
+      } catch (err) {
+        showAlert('Silakan tempel secara manual di kotak teks.', 'warning');
+      }
+    });
+
+    function showAlert(message, type = 'error') {
+      statusAlert.classList.remove('hidden', 'bg-red-500/10', 'text-red-400', 'border-red-500/30', 'bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/30', 'bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
+      statusAlert.classList.add('border');
+
+      if (type === 'error') {
+        statusAlert.classList.add('bg-red-500/10', 'text-red-400', 'border-red-500/30');
+      } else if (type === 'success') {
+        statusAlert.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/30');
+      } else {
+        statusAlert.classList.add('bg-amber-500/10', 'text-amber-400', 'border-amber-500/30');
+      }
+
+      statusAlert.textContent = message;
+      setTimeout(() => statusAlert.classList.add('hidden'), 5000);
+    }
+
+    function formatNumber(num) {
+      if (!num) return '0';
+      if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+      if (num >= 1000) return (num / 1000).toFixed(1) + 'K';
+      return num.toLocaleString();
+    }
+
+    // Eksekusi Download saat Tombol Ditekan
+    downloadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const rawUrl = tiktokUrlInput.value.trim();
+
+      if (!rawUrl) {
+        showAlert('Silakan masukkan tautan TikTok terlebih dahulu!');
+        return;
+      }
+
+      if (!rawUrl.includes('tiktok.com')) {
+        showAlert('URL tidak valid! Gunakan tautan resmi dari aplikasi TikTok.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> Memproses...`;
+      lucide.createIcons();
+      resultCard.classList.add('hidden');
+      loadingSkeleton.classList.remove('hidden');
+
+      try {
+        // Menggunakan API publik TikWM untuk ekstraksi langsung tanpa watermark
+        const apiUrl = `https://www.tikwm.com/api/?url=${encodeURIComponent(rawUrl)}`;
+        const response = await fetch(apiUrl);
+        const result = await response.json();
+
+        if (result.code !== 0 || !result.data) {
+          throw new Error(result.msg || 'Gagal mengekstrak video. Akun mungkin diprivat atau link salah.');
+        }
+
+        renderResult(result.data);
+        showAlert('Berhasil mengambil data video!', 'success');
+      } catch (err) {
+        console.error(err);
+        showAlert(err.message || 'Gagal memproses video. Periksa koneksi internet Anda.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `<i data-lucide="download" class="w-5 h-5"></i> Download`;
+        lucide.createIcons();
+        loadingSkeleton.classList.add('hidden');
+      }
+    });
+
+    function renderResult(data) {
+      // 1. Thumbnail & Profil
+      mediaCover.src = data.cover || data.origin_cover || '';
+      authorAvatar.src = data.author?.avatar || 'https://via.placeholder.com/150';
+      authorName.textContent = data.author?.nickname || 'Pengguna TikTok';
+      authorHandle.textContent = `@${data.author?.unique_id || 'unknown'}`;
+      
+      if (data.duration) {
+        const mins = Math.floor(data.duration / 60);
+        const secs = data.duration % 60;
+        mediaDuration.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      } else {
+        mediaDuration.textContent = 'Slide Foto';
+      }
+
+      // 2. Statistik
+      statLikes.textContent = formatNumber(data.digg_count);
+      statComments.textContent = formatNumber(data.comment_count);
+      statShares.textContent = formatNumber(data.share_count);
+
+      // 3. Caption & Ekstraksi Hashtag
+      currentCaption = data.title || 'Tidak ada caption.';
+      captionText.textContent = currentCaption;
+
+      const hashtagsMatch = currentCaption.match(/#[a-zA-Z0-9_\u0590-\u05ff]+/g);
+      currentHashtags = hashtagsMatch ? hashtagsMatch.join(' ') : '';
+
+      copyHashtagsBtn.style.opacity = currentHashtags ? '1' : '0.5';
+
+      // 4. Pasang Tautan Unduh
+      const directVideoUrl = data.play || data.wmplay || '';
+      const hdVideoUrl = data.hdplay || data.play || '';
+      const musicUrl = data.music || '';
+
+      btnDownloadHD.href = hdVideoUrl;
+      btnDownloadServer2.href = directVideoUrl;
+
+      if (musicUrl) {
+        btnDownloadMP3.classList.remove('hidden');
+        btnDownloadMP3.href = musicUrl;
+      } else {
+        btnDownloadMP3.classList.add('hidden');
+      }
+
+      // 5. Album Foto Slide jika Konten adalah Gambar
+      if (data.images && data.images.length > 0) {
+        photosContainer.classList.remove('hidden');
+        photosGrid.innerHTML = '';
+
+        data.images.forEach((imgUrl, index) => {
+          const photoCard = document.createElement('div');
+          photoCard.className = 'relative rounded-xl overflow-hidden border border-white/10 group';
+          photoCard.innerHTML = `
+            <img src="${imgUrl}" class="w-full aspect-[9/16] object-cover" alt="Slide ${index + 1}">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition flex items-center justify-center p-2">
+              <a href="${imgUrl}" target="_blank" download="Foto_${index + 1}.jpg" class="text-[11px] bg-brand-cyan text-black font-bold px-2.5 py-1.5 rounded-lg flex items-center gap-1">
+                <i data-lucide="download" class="w-3 h-3"></i> Foto ${index + 1}
+              </a>
+            </div>
+          `;
+          photosGrid.appendChild(photoCard);
+        });
+      } else {
+        photosContainer.classList.add('hidden');
+      }
+
+      resultCard.classList.remove('hidden');
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      lucide.createIcons();
+    }
+
+    // Salin Semua Caption
+    copyAllCaptionBtn.addEventListener('click', async () => {
+      if (!currentCaption) return;
+      try {
+        await navigator.clipboard.writeText(currentCaption);
+        showAlert('Semua caption berhasil disalin ke papan klip!', 'success');
+      } catch (e) {
+        showAlert('Gagal menyalin caption secara otomatis.', 'warning');
+      }
+    });
+
+    // Salin Hanya Hashtag
+    copyHashtagsBtn.addEventListener('click', async () => {
+      if (!currentHashtags) {
+        showAlert('Tidak ditemukan hashtag (#) pada video ini.', 'warning');
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(currentHashtags);
+        showAlert('Hashtag berhasil disalin!', 'success');
+      } catch (e) {
+        showAlert('Gagal menyalin hashtag.', 'warning');
+      }
+    });
+  </script>
+</body>
+</html>
